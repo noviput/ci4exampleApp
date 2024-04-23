@@ -17,11 +17,9 @@
         }
 
         .container {
-<<<<<<< HEAD
             display: flex;
             max-width: 1200px;
             margin: 50px auto;
-=======
         }
 
         .sidebar {
