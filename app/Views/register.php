@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lab ICT Web Penjadwalan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -51,6 +52,7 @@
             border-radius: 4px;
             border: 1px solid #808080;
             box-sizing: border-box;
+            padding-left: 30px; /* Add left padding for the icon */
         }
         input[type="submit"] {
             width: 100%;
@@ -64,15 +66,15 @@
         input[type="submit"]:hover {
             background-color: #0056b3;
         }
-        .register-link {
-            margin-top: 15px;
+        .input-icon {
+            position: relative;
         }
-        .register-link a {
-            color: #007BFF;
-            text-decoration: none;
-        }
-        .register-link a:hover {
-            text-decoration: underline;
+        .input-icon i {
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #808080; /* Adjust icon color */
         }
     </style>
 </head>
@@ -81,22 +83,33 @@
         <div class="logo">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTadTQxsd060TxmyUJABZnog10LPYkEDeuqbkKOOCrPBg&s" alt="Logo">
         </div>
-        <h1>Lab ICT Penjadwalan</h1>
-        <form action="<?= site_url('submit') ?>" method="post">
-            <div>
+    
+        <?php if (session()->has('error')): ?>
+            <div class="alert alert-danger">
+                <?= session('error') ?>
+            </div>
+        <?php endif; ?>
+        <h1>Daftar Akun</h1>
+        <form action="<?= site_url('register') ?>" method="post">
+            <div class="input-icon">
+                <i class="fas fa-user"></i> <!-- Icon "person" -->
                 <label for="username">Username:</label>
-                <input type="text" name="username" required>
+                <input type="text" name="username" placeholder="Username" required>
             </div>
-            <div>
+            <div class="input-icon">
+                <i class="fas fa-lock"></i> <!-- Icon "lock" -->
                 <label for="password">Password:</label>
-                <input type="password" name="password" required>
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="input-icon">
+                <i class="fas fa-lock"></i> <!-- Icon "lock" -->
+                <label for="confirm-password">Konfirmasi Password</label>
+                <input type="password" name="confirm_password" placeholder="Konfirmasi Password" required>
             </div>
             <div>
-                <input type="submit" value="Login">
+                <input type="submit" value="Daftar">
             </div>
         </form>
-        <div class="register-link">
-            <span>Belum punya akun? </span><a href="<?= site_url('/register') ?>">Daftar di sini</a>
     </div>
 </body>
 </html>

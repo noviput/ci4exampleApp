@@ -192,8 +192,8 @@
             <ul>
                 <li><a href="#"><img src="https://media.istockphoto.com/id/952981140/vector/home-icon.jpg?s=612x612&w=0&k=20&c=HEf3EQ89r53qeGhkCmyH27HCz_QbiosDW-zZWscnAtU=" class="dashboard-icon" alt="Dashboard"> <form action="<?= site_url('dashboard') ?>" method="post">Dashboard</form></a></li>
                 <li><a href="#"><img src="https://st2.depositphotos.com/15813590/44817/v/450/depositphotos_448170874-stock-illustration-calendar-vector-icon-isolated-white.jpg" class="penjadwalan-icon" alt="Penjadwalan"> <form action="<?= site_url('penjadwalan') ?>" method="post">Penjadwalan</form></a></li>
-                <li><a href="<?= site_url('ruangan') ?>"><img src="https://previews.123rf.com/images/vectorhome/vectorhome1907/vectorhome190701283/127532618-coworking-space-icon.jpg" class="info-ruangan" alt="inforuangan"> Info ruangan</a></li>
-                <li><a href="<?= site_url('/') ?>"><img src="https://media.istockphoto.com/id/1383119801/vector/the-exit-icon-logout-and-output-outlet-out-symbol-flat-vector-illustration.jpg?s=612x612&w=0&k=20&c=vCeRAJcKZmjTfZHQlvq_-2Z-0EbA7gxXK5tmYxR27s8=" class="logout-icon" alt="Logout"> <form action="<?= site_url('logout') ?>" method="post">Logout</form></a></li>
+                <li><a href="<?= site_url('ruangan') ?>"method="get"><img src="https://previews.123rf.com/images/vectorhome/vectorhome1907/vectorhome190701283/127532618-coworking-space-icon.jpg" class="info-ruangan" alt="inforuangan"> Info ruangan</a></li>
+                <li><a href="<?= site_url('logout') ?>"><img src="https://media.istockphoto.com/id/1383119801/vector/the-exit-icon-logout-and-output-outlet-out-symbol-flat-vector-illustration.jpg?s=612x612&w=0&k=20&c=vCeRAJcKZmjTfZHQlvq_-2Z-0EbA7gxXK5tmYxR27s8=" class="logout-icon" alt="Logout"> <form action="<?= site_url('logout') ?>" method="post">Logout</form></a></li>
             </ul>
         </div>
         <div class="content">
@@ -220,15 +220,15 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>Outri</td>
+                        <td>PBO</td>
+                        <td>AA</td>
+                        <td>Lab 4</td>
+                        <td>3</td>
+                        <td>senin</td>
+                        <td>08:00</td>
+                        <td>10:40</td>
+                        <td>kelas</td>
                         <td><button class="edit-btn">Edit</button> <button class="delete-btn">Hapus</button></td>
                     </tr>
                     <!-- Data lainnya -->

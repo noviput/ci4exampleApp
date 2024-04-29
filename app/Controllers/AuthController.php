@@ -11,6 +11,7 @@ class AuthController extends BaseController
     public function index()
     {
         //
+        return view("dashboard_view");
     }
 
     public function submit()
@@ -23,7 +24,8 @@ class AuthController extends BaseController
     try {
         if (!password_verify("{$password}", $user['password'])) {
             return view("dashboard_view");
-            
+        } else {
+            return redirect()->back();
         }
     } catch (\Throwable $th) {
         return redirect()->back()->with('error', 'Password salah');

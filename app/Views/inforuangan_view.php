@@ -45,8 +45,21 @@
             font-weight: bold;
         }
         .occupied {
-            background-color: #ff0000; /* Occupied lab color */
+         background-color: #ff0000; /* Occupied lab color */
+        color: #fff;
+        
+        }
+        .back-button {
+            margin-top: 20px;
+            background-color: #007BFF;
             color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -67,6 +80,8 @@
             <div class="lab-item">Lab 10</div>
             <div class="lab-item">Lab 11</div>
         </div>
+        <!-- <button class="back-button" onclick="window.location.href='Dashboard'">Back to Dashboard</button> -->
+        <a href="<?= site_url('dashboard')  ?>">Back to dashboard</a>
     </div>
 
     <script>
