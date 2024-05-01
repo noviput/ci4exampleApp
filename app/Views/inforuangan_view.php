@@ -21,33 +21,32 @@
             padding: 40px;
             border-radius: 8px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-            width: 500px;
+            width: 700px; /* Lebar tabel */
             position: relative;
             text-align: center;
+            overflow-x: auto; /* Mengaktifkan scroll horizontal pada container */
         }
         h1 {
             text-align: center;
             color: #007BFF;
             margin-bottom: 20px;
         }
-        .lab-list {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin-top: 20px;
+        .lab-table-container {
+            overflow-x: auto; /* Mengaktifkan scroll horizontal */
         }
-        .lab-item {
-            padding: 15px;
-            border-radius: 4px;
-            border: 1px solid #808080;
-            background-color: #d3d3d3; /* Default background color */
-            color: #000;
-            font-weight: bold;
+        .lab-table {
+            width: 100%; /* Lebar tabel sesuai container */
+            border-collapse: collapse;
+        }
+        .lab-table th,
+        .lab-table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd; /* Garis antar baris */
+            text-align: left;
         }
         .occupied {
-         background-color: #ff0000; /* Occupied lab color */
-        color: #fff;
-        
+            background-color: #ff0000; /* Warna lab terisi */
+            color: #fff;
         }
         .back-button {
             margin-top: 20px;
@@ -57,9 +56,24 @@
             padding: 10px 20px;
             border-radius: 4px;
             cursor: pointer;
+            text-decoration: none; /* Menghapus underline dari tautan */
+            display: inline-block; /* Membuat tautan berperilaku seperti tombol */
         }
         .back-button:hover {
             background-color: #0056b3;
+        }
+        /* Hapus gaya panah */
+        .arrow-icon {
+            display: none;
+        }
+        /* Mengatur posisi dan ukuran logo */
+        .logo {
+            float: left; /* Membuat logo berada di sebelah kiri */
+            margin-right: 20px; /* Memberi jarak antara logo dan teks */
+        }
+        .logo img {
+            width: 60px; /* Ukuran logo yang baru */
+            height: auto; /* Biarkan tinggi logo disesuaikan secara otomatis */
         }
     </style>
 </head>
@@ -69,29 +83,43 @@
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTadTQxsd060TxmyUJABZnog10LPYkEDeuqbkKOOCrPBg&s" alt="Logo">
         </div>
         <h1>Info Ruangan Lab ICT</h1>
-        <div class="lab-list">
-            <div class="lab-item">Lab 2</div>
-            <div class="lab-item">Lab 4</div>
-            <div class="lab-item">Lab 5</div>
-            <div class="lab-item">Lab 6</div>
-            <div class="lab-item">Lab 7</div>
-            <div class="lab-item">Lab 8</div>
-            <div class="lab-item">Lab 9</div>
-            <div class="lab-item">Lab 10</div>
-            <div class="lab-item">Lab 11</div>
-        </div>
-        <!-- <button class="back-button" onclick="window.location.href='Dashboard'">Back to Dashboard</button> -->
-        <a href="<?= site_url('dashboard')  ?>">Back to dashboard</a>
+        <table class="lab-table">
+            <tr>
+                <th>Ruangan</th>
+                <th>Jam Masuk</th>
+                <th>Jam Keluar</th>
+                <th>Tanggal</th> <!-- Ubah dari "Hari" menjadi "Tanggal" -->
+                <th>Keterangan</th>
+                <th>Status</th> <!-- Kolom Status -->
+            </tr>
+            <!-- Data contoh ruangan lab -->
+            <tr>
+                <td>Lab 2</td>
+                <td>08:00</td>
+                <td>10:00</td>
+                <td>Senin, 1 April 2024</td> <!-- Ubah dari "Senin" menjadi "Senin, 1 April 2024" -->
+                <td>-</td>
+                <td>Tersedia</td> <!-- Data Status -->
+            </tr>
+            <tr>
+                <td>Lab 4</td>
+                <td>09:00</td>
+                <td>12:00</td>
+                <td>Selasa, 2 April 2024</td> <!-- Ubah dari "Selasa" menjadi "Selasa, 2 April 2024" -->
+                <td>Kelas</td>
+                <td>Terisi</td> <!-- Data Status -->
+            </tr>
+            <tr>
+                <td>Lab 5</td>
+                <td>10:00</td>
+                <td>13:00</td>
+                <td>Rabu, 3 April 2024</td> <!-- Ubah dari "Rabu" menjadi "Rabu, 3 April 2024" -->
+                <td>-</td>
+                <td>Tersedia</td> <!-- Data Status -->
+            </tr>
+            <!-- Dan seterusnya -->
+        </table>
+        <a href="<?= site_url('dashboard')  ?>" class="back-button">Back to dashboard</a>
     </div>
-
-    <script>
-        const occupiedLabs = ["Lab 4", "Lab 7", "Lab 9"];
-        occupiedLabs.forEach((labName) => {
-            const labItem = document.querySelector(`.lab-item:contains('${labName}')`);
-            if (labItem) {
-                labItem.classList.add('occupied');
-            }
-        });
-    </script>
 </body>
 </html>

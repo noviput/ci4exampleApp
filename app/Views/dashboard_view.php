@@ -40,10 +40,10 @@
         }
 
         .sidebar img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-bottom: 0;
+            width: 100px; 
+            height: auto; 
+            border-radius: 50%; 
+            margin-bottom: 10px;
         }
 
         .sidebar p {
@@ -77,8 +77,8 @@
 
         .sidebar a img {
             margin-right: 10px;
-            width: 40px;  /* Ukuran ikon diubah menjadi 40px */
-            height: 40px; /* Ukuran ikon diubah menjadi 40px */
+            width: 40px;
+            height: 40px;
         }
 
         .content {
@@ -144,7 +144,7 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            width: 50px;
+            width: 30px;
             height: auto;
         }
 
@@ -180,24 +180,28 @@
             background-color: #cc0000;
         }
 
+        
+        .schedule-table td:nth-child(9) {
+            width: 120px; 
+        }
+
     </style>
 </head>
 
 <body>
     <div class="container">
         <div class="sidebar">
-            <img src="https://i.pinimg.com/474x/7b/4d/c9/7b4dc9e446253fa2d045aacb8f10d5b7.jpg" alt="Profil">
-            <p>Putri Novita Sari</p>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4yiWC4VV-J-3heupPuDRYM4ANZapFf_8ZVU6sH76RTA&s" alt="Logo Lab ICT">
+            <p>LAB ICT</p>
             <h2>Penjadwalan</h2>
             <ul>
                 <li><a href="#"><img src="https://media.istockphoto.com/id/952981140/vector/home-icon.jpg?s=612x612&w=0&k=20&c=HEf3EQ89r53qeGhkCmyH27HCz_QbiosDW-zZWscnAtU=" class="dashboard-icon" alt="Dashboard"> <form action="<?= site_url('dashboard') ?>" method="post">Dashboard</form></a></li>
-                <li><a href="#"><img src="https://st2.depositphotos.com/15813590/44817/v/450/depositphotos_448170874-stock-illustration-calendar-vector-icon-isolated-white.jpg" class="penjadwalan-icon" alt="Penjadwalan"> <form action="<?= site_url('penjadwalan') ?>" method="post">Penjadwalan</form></a></li>
+                <li><a href="<?= site_url('scheduler') ?>"method="get"><img src="https://st2.depositphotos.com/15813590/44817/v/450/depositphotos_448170874-stock-illustration-calendar-vector-icon-isolated-white.jpg" class="penjadwalan-icon" alt="Penjadwalan">Penjadwalan</a></li>
                 <li><a href="<?= site_url('ruangan') ?>"method="get"><img src="https://previews.123rf.com/images/vectorhome/vectorhome1907/vectorhome190701283/127532618-coworking-space-icon.jpg" class="info-ruangan" alt="inforuangan"> Info ruangan</a></li>
                 <li><a href="<?= site_url('logout') ?>"><img src="https://media.istockphoto.com/id/1383119801/vector/the-exit-icon-logout-and-output-outlet-out-symbol-flat-vector-illustration.jpg?s=612x612&w=0&k=20&c=vCeRAJcKZmjTfZHQlvq_-2Z-0EbA7gxXK5tmYxR27s8=" class="logout-icon" alt="Logout"> <form action="<?= site_url('logout') ?>" method="post">Logout</form></a></li>
             </ul>
         </div>
         <div class="content">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHj376zTCTrsmyfXkqxuY1nh5Zw0GYgDdNKziAGPHYfQ&s" alt="Lab ICT Logo" class="lab-ict-logo">
             <h2>Dashboard Overview</h2>
             <div class="search-container">
                 <label for="search">Cari:</label>
@@ -214,6 +218,7 @@
                         <th>Hari</th>
                         <th>Jam Masuk</th>
                         <th>Jam Keluar</th>
+                        <th>Tanggal</th> <!-- Ubah dari "Hari" menjadi "Tanggal" -->
                         <th>Keterangan</th>
                         <th>Opsi</th>
                     </tr>
@@ -225,10 +230,11 @@
                         <td>AA</td>
                         <td>Lab 4</td>
                         <td>3</td>
-                        <td>senin</td>
+                        <td>Senin</td>
                         <td>08:00</td>
                         <td>10:40</td>
-                        <td>kelas</td>
+                        <td>10-05-2024</td> <!-- Tanggal -->
+                        <td>Kelas</td>
                         <td><button class="edit-btn">Edit</button> <button class="delete-btn">Hapus</button></td>
                     </tr>
                     <!-- Data lainnya -->
