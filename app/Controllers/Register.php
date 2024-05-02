@@ -32,7 +32,7 @@ public function process()
         ]);
 
         // Berhasil mendaftar, redirect ke halaman login
-        return redirect()->to('welcome_message');
+        return redirect()->to('/');
     }
 }
 
