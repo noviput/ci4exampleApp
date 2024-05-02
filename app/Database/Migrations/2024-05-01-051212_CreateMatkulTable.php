@@ -28,12 +28,7 @@ class CreateMatkulTable extends Migration
                 'constraint' => 50,
             ],
             'fakultas' => [
-                'type' => 'VARCHAR',
-                'constraint' => 50,
-            ],
-            'jurusan' => [
-                'type' => 'VARCHAR',
-                'constraint' => 50,
+                'type' => 'ENUM("FISSIG", "FT", "FTI", "FKDK", "FEB")',
             ],
         ]);
         $this->forge->addKey('kd_matkul', true);

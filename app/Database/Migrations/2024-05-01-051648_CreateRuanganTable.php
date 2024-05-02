@@ -15,9 +15,8 @@ class CreateRuanganTable extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            'nm_lab' => [
-                'type' => 'VARCHAR',
-                'constraint' => 100,
+            'lab' => [
+                'type' => 'ENUM("Lab 02", "Lab 04", "Lab 05", "Lab 06", "Lab 07", "Lab 08", "Lab 09", "Lab 10", "Lab 11")',
             ],
             'status' => [
                 'type' => 'ENUM("tersedia", "digunakan")',

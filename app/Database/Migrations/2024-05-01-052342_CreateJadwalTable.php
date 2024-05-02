@@ -24,9 +24,10 @@ class CreateJadwalTable extends Migration
                 'constraint' => 5,
                 'unsigned' => true,
             ],
-            'lab' => [
-                'type' => 'VARCHAR',
-                'constraint' => 50,
+            'id_lab' => [
+                'type' => 'INT',
+                'constraint' => 5,
+                'unsigned' => true,
             ],
             'waktu_mulai' => [
                 'type' => 'TIME',
@@ -42,9 +43,11 @@ class CreateJadwalTable extends Migration
                 'default' => 'aktif',
             ],
         ]);
+
         $this->forge->addKey('kd_jadwal', true);
         $this->forge->addForeignKey('nip', 'dosen', 'nip');
         $this->forge->addForeignKey('kd_matkul', 'matkul', 'kd_matkul');
+        $this->forge->addForeignKey('id_lab', 'ruangan', 'id_lab'); // Menjadikan id_lab sebagai foreign key ke tabel ruangan
         $this->forge->createTable('jadwal');
     }
 
