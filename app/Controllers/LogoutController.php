@@ -4,13 +4,13 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 
-class LogOutController extends Controller
+class LogoutController extends Controller
 {
     public function index(){
-    return view('/');
+    return view('welcome_message');
     }
     public function logout()
     {
-        session()->destroy();
+        return view('welcome_message');
     }
 }
