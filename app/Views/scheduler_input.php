@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,6 +42,14 @@
             border-radius: 50%; 
             margin-bottom: 10px; /* Atur jarak kiri */
         }
+
+        h2 {
+            color: black; /* Warna teks hitam */
+        }
+
+        .btn-back {
+            margin-top: 20px; /* Atur jarak atas */
+        }
     </style>
 </head>
 
@@ -50,55 +59,61 @@
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4yiWC4VV-J-3heupPuDRYM4ANZapFf_8ZVU6sH76RTA&s" alt="Logo Lab ICT" class="logo">
             Form Input Penjadwalan
         </h2>
-        <form action="<?= site_url('jadwal') ?>" method="post">
+        <form action="<?= site_url('penjadwalan') ?>" method="post">
             <div class="row">
                 <div class="form-group col-md-5 mt-3">
                     <label for="course_name">Mata Kuliah:</label>
-                    <input type="text" class="form-control" id="course_name" name="course_name" required>
+                    <select class="form-control" name="kd_matkul" id="kd_matkul">
+                <?php foreach($matkul as $row): ?>
+                    <option value="<?= $row['kd_matkul'] ?>"><?= $row['nm_matkul'] ?></option>
+                <?php endforeach; ?>
+            </select>
                 </div>
                 <div class="form-group col-md-5 mt-3">
                     <label for="lecturer">Dosen:</label>
-                    <input type="text" class="form-control" id="lecturer" name="lecturer" required>
+                    <select class="form-control" name="nip" id="nip">
+                <?php foreach($dosen as $row): ?>
+                    <option value="<?= $row['nip'] ?>"><?= $row['nm_dosen'] ?></option>
+                <?php endforeach; ?>
+            </select>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-1">
-                    <label for="sks">SKS:</label>
-                    <input type="number" class="form-control" id="sks" name="sks" required>
+                    
                 </div>
                 <div class="form-group col-md-3">
                     <label for="room">Ruangan:</label>
-                    <select class="form-control" id="room" name="room" required>
-                        <option value="lab-2">LAB 02</option>
-                        <option value="lab-4">LAB 04</option>
-                        <option value="lab-5">LAB 05</option>
-                        <option value="lab-6">LAB 06</option>
-                        <option value="lab-7">LAB 07</option>
-                        <option value="lab-8">LAB 08</option>
-                        <option value="lab-9">LAB 09</option>
-                        <option value="lab-10">LAB 10</option>
-                        <option value="lab-11">LAB 11</option>
-                    </select>
+                   
+                    <select class="form-control" name="id_lab" id="id_lab">
+                <?php foreach($ruangan as $row): ?>
+                    <option value="<?= $row['id_lab'] ?>"><?= $row['lab'] ?></option>
+                <?php endforeach; ?>
+            </select>
+                </div>
+                <div class="form-group col-md-3">
                 </div>
                 <div class="form-group col-md-3">
                     <label for="day">Hari:</label>
-                    <select class="form-control" id="day" name="day" required>
-                        <option value="Senin">Senin</option>
-                        <option value="Selasa">Selasa</option>
-                        <option value="Rabu">Rabu</option>
-                        <option value="Kamis">Kamis</option>
-                        <option value="Jumat">Jumat</option>
-                    </select>
+                    <select class="form-control" name="hari" id="hari" required>
+                <option value="Senin">Senin</option>
+                <option value="Selasa">Selasa</option>
+                <option value="Rabu">Rabu</option>
+                <option value="Kamis">Kamis</option>
+                <option value="Jumat">Jumat</option>
+                <option value="Sabtu">Sabtu</option>
+                <option value="Minggu">Minggu</option>
+            </select>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-2">
                     <label for="start_time">Jam Masuk:</label>
-                    <input type="time" class="form-control" id="start_time" name="start_time" required>
+                    <input type="time" name="waktu_mulai" id="waktu_mulai" required>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="end_time">Jam Keluar:</label>
-                    <input type="time" class="form-control" id="end_time" name="end_time" required>
+                    <input type="time" name="waktu_selesai" id="waktu_selesai" required>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="date">Tanggal:</label>
@@ -107,6 +122,8 @@
             </div>
             <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
+        <!-- Tombol Back to Dashboard -->
+        <a href="dashboard" class="btn btn-secondary btn-back">Back to Dashboard</a>
     </div>
 </body>
 

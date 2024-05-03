@@ -16,5 +16,6 @@ $routes->get('logout', 'LogoutController::index');
 $routes->post('logout', 'LogoutController::logout', ['as' => 'dashboard']);
 $routes->get('register', 'Register::index');
 $routes->post('register', 'Register::process');
-$routes->get('scheduler', 'SchedulerController::scheduler');
+$routes->get('penjadwalan', 'SchedulerController::index');
+$routes->post('penjadwalan', 'SchedulerController::submitForm');
 //$routes->post('scheduler_input', 'SchedulerController::save');

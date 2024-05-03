@@ -2,33 +2,46 @@
 
 namespace App\Controllers;
 
-use App\Models\SchedulerModel;
+use App\Models\DosenModel;
+use App\Models\MatkulModel;
+use App\Models\RuanganModel;
+use CodeIgniter\Controller;
 
-class SchedulerController extends BaseController
+class SchedulerController extends Controller
 {
-    public function scheduler()
+    public function index()
     {
-        return view('scheduler_input');
+        // Panggil model-model yang diperlukan
+        $dosenModel = new DosenModel();
+        $matkulModel = new MatkulModel();
+        $ruanganModel = new RuanganModel();
+
+        // Ambil data dosen, mata kuliah, dan ruangan dari database
+        $data['dosen'] = $dosenModel->findAll();
+        $data['matkul'] = $matkulModel->findAll();
+        $data['ruangan'] = $ruanganModel->findAll();
+
+        // Tampilkan view form penjadwalan dan kirim data dosen, mata kuliah, dan ruangan
+        return view('scheduler_input', $data);
     }
 
-    public function save()
+    public function submitForm()
     {
-        $schedulerModel = new SchedulerModel();
+        // Proses data yang dikirimkan melalui form
+        $request = \Config\Services::request();
 
-        // Ambil data dari form
-        $data = [
-            'title' => $this->request->getPost('title'),
-            'date' => $this->request->getPost('date'),
-            'time' => $this->request->getPost('time'),
-            'description' => $this->request->getPost('description'),
-        ];
+        // Ambil data yang dikirimkan dari form
+        $nip = $request->getPost('nip');
+        $kd_matkul = $request->getPost('kd_matkul');
+        $id_lab = $request->getPost('id_lab');
+        $waktu_mulai = $request->getPost('waktu_mulai');
+        $waktu_selesai = $request->getPost('waktu_selesai');
+        $hari = $request->getPost('hari');
+        // Lakukan validasi data jika diperlukan
 
-        // Validasi data (jika diperlukan)
+        // Lakukan penyimpanan data ke database atau lakukan operasi yang diperlukan sesuai dengan logika aplikasi Anda
 
-        // Simpan data ke dalam database
-        $schedulerModel->insert ->$data;
-
-        // Redirect ke halaman input dengan pesan sukses
-        return redirect()->to(site_url('scheduler'))->with('success', 'Jadwal berhasil disimpan.');
+        // Setelah selesai, redirect pengguna ke halaman lain atau tampilkan pesan sukses
+        return redirect()->to(site_url('dashboard'))->with('success', 'Form penjadwalan berhasil disubmit!');
     }
 }

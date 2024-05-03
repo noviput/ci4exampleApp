@@ -35,6 +35,9 @@ class CreateJadwalTable extends Migration
             'waktu_selesai' => [
                 'type' => 'TIME',
             ],
+            'tanggal' => [
+                'type' => 'DATE',
+            ],
             'hari' => [
                 'type' => 'ENUM("Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu")',
             ],
