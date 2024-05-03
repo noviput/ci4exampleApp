@@ -224,20 +224,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Outri</td>
-                        <td>PBO</td>
-                        <td>AA</td>
-                        <td>Lab 4</td>
-                        <td>3</td>
-                        <td>Senin</td>
-                        <td>08:00</td>
-                        <td>10:40</td>
-                        <td>10-05-2024</td> <!-- Tanggal -->
-                        <td>Kelas</td>
-                        <td><button class="edit-btn">Edit</button> <button class="delete-btn">Hapus</button></td>
-                    </tr>
-                    <!-- Data lainnya -->
+                    <?php foreach ($jadwal as $row) : ?>
+                        <tr>
+                        <td><?= $row->nm_dosen ?></td>
+                        <td><?= $row->nm_matkul ?></td>
+                        <td><?= $row->kelompok ?></td>
+                        <td><?= $row->lab ?></td>
+                        <td><?= $row->sks ?></td>
+                        <td><?= $row->hari ?></td>
+                        <td><?= $row->waktu_mulai ?></td>
+                        <td><?= $row->waktu_selesai ?></td>
+                        <td><?= $row->tanggal ?></td>
+                        <td><?= $row->status ?></td>
+                            <td>
+                                <a href="<?= site_url('dashboard/edit/' . $row->kd_jadwal) ?>" class="edit-btn">Edit</a>
+                                <a href="<?= site_url('dashboard/delete/' . $row->kd_jadwal) ?>" class="delete-btn">Delete</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

@@ -117,7 +117,7 @@
                 </div>
                 <div class="form-group col-md-2">
                     <label for="date">Tanggal:</label>
-                    <input type="date" class="form-control" id="date" name="date" required>
+                    <input type="date" class="form-control" id="tanggal" name="tanggal" required>
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Simpan</button>

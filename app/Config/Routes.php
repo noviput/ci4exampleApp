@@ -5,6 +5,7 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
+$routes->post('login', 'AuthController::test');
 $routes->get('/', 'Home::index');
 $routes->post('submit', 'AuthController::login');
 $routes->get('dashboard', 'AuthController::index');
@@ -18,4 +19,8 @@ $routes->get('register', 'Register::index');
 $routes->post('register', 'Register::process');
 $routes->get('penjadwalan', 'SchedulerController::index');
 $routes->post('penjadwalan', 'SchedulerController::submitForm');
+// $routes->get('scheduler/edit/(:num)', 'UpdateController/editForm/$1');
+// $routes->post('scheduler/update/(:num)', 'UpdateController/updateForm/$1');
+
+
 //$routes->post('scheduler_input', 'SchedulerController::save');
