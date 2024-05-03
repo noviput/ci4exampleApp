@@ -5,11 +5,12 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->post('login', 'AuthController::test');
+
 $routes->get('/', 'Home::index');
-$routes->post('submit', 'AuthController::login');
+$routes->post('dashboard', 'AuthController::test');
+//$routes->post('submit', 'AuthController::login');
 $routes->get('dashboard', 'AuthController::index');
-$routes->post('dashboard', 'AuthController::dashboard');
+//$routes->post('dashboard', 'AuthController::dashboard');
 // $routes->get("dashboard","Dashboard::index");
 // $routes->post('Ruangan', 'Dashboard::Ruangan');
 $routes->get('ruangan', 'RuanganController::ruangan');

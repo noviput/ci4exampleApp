@@ -40,9 +40,9 @@
         }
 
         .sidebar img {
-            width: 100px; 
-            height: auto; 
-            border-radius: 50%; 
+            width: 100px;
+            height: auto;
+            border-radius: 50%;
             margin-bottom: 10px;
         }
 
@@ -180,11 +180,10 @@
             background-color: #cc0000;
         }
 
-        
-        .schedule-table td:nth-child(9) {
-            width: 120px; 
-        }
 
+        .schedule-table td:nth-child(9) {
+            width: 120px;
+        }
     </style>
 </head>
 
@@ -195,18 +194,17 @@
             <p>LAB ICT</p>
             <h2>Penjadwalan</h2>
             <ul>
-                <li><a href="#"><img src="https://media.istockphoto.com/id/952981140/vector/home-icon.jpg?s=612x612&w=0&k=20&c=HEf3EQ89r53qeGhkCmyH27HCz_QbiosDW-zZWscnAtU=" class="dashboard-icon" alt="Dashboard"> <form action="<?= site_url('dashboard') ?>" method="post">Dashboard</form></a></li>
-                <li><a href="<?= site_url('penjadwalan') ?>"method="get"><img src="https://st2.depositphotos.com/15813590/44817/v/450/depositphotos_448170874-stock-illustration-calendar-vector-icon-isolated-white.jpg" class="penjadwalan-icon" alt="Penjadwalan">Penjadwalan</a></li>
-                <li><a href="<?= site_url('ruangan') ?>"method="get"><img src="https://previews.123rf.com/images/vectorhome/vectorhome1907/vectorhome190701283/127532618-coworking-space-icon.jpg" class="info-ruangan" alt="inforuangan"> Info ruangan</a></li>
+                <li><a href="#"><img src="https://media.istockphoto.com/id/952981140/vector/home-icon.jpg?s=612x612&w=0&k=20&c=HEf3EQ89r53qeGhkCmyH27HCz_QbiosDW-zZWscnAtU=" class="dashboard-icon" alt="Dashboard">
+                        <form action="<?= site_url('dashboard') ?>" method="post">Dashboard</form>
+                    </a></li>
+                <li><a href="<?= site_url('penjadwalan') ?>" method="get"><img src="https://st2.depositphotos.com/15813590/44817/v/450/depositphotos_448170874-stock-illustration-calendar-vector-icon-isolated-white.jpg" class="penjadwalan-icon" alt="Penjadwalan">Penjadwalan</a></li>
+                <li><a href="<?= site_url('ruangan') ?>" method="get"><img src="https://previews.123rf.com/images/vectorhome/vectorhome1907/vectorhome190701283/127532618-coworking-space-icon.jpg" class="info-ruangan" alt="inforuangan"> Info ruangan</a></li>
                 <li><a href="<?= site_url('logout') ?>"><img src="https://media.istockphoto.com/id/1383119801/vector/the-exit-icon-logout-and-output-outlet-out-symbol-flat-vector-illustration.jpg?s=612x612&w=0&k=20&c=vCeRAJcKZmjTfZHQlvq_-2Z-0EbA7gxXK5tmYxR27s8=" class="logout-icon" alt="Logout"> Logout</a></li>
             </ul>
         </div>
         <div class="content">
             <h2>Dashboard Overview</h2>
-            <div class="search-container">
-                <label for="search">Cari:</label>
-                <input type="text" id="search" name="search" placeholder="Cari...">
-            </div>
+            
             <table class="schedule-table">
                 <thead>
                     <tr>
@@ -224,24 +222,27 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php if (isset($jadwal) && is_array($jadwal)): ?>
                     <?php foreach ($jadwal as $row) : ?>
                         <tr>
-                        <td><?= $row->nm_dosen ?></td>
-                        <td><?= $row->nm_matkul ?></td>
-                        <td><?= $row->kelompok ?></td>
-                        <td><?= $row->lab ?></td>
-                        <td><?= $row->sks ?></td>
-                        <td><?= $row->hari ?></td>
-                        <td><?= $row->waktu_mulai ?></td>
-                        <td><?= $row->waktu_selesai ?></td>
-                        <td><?= $row->tanggal ?></td>
-                        <td><?= $row->status ?></td>
+                            <td><?= $row->nm_dosen ?></td>
+                            <td><?= $row->nm_matkul ?></td>
+                            <td><?= $row->kelompok ?></td>
+                            <td><?= $row->lab ?></td>
+                            <td><?= $row->sks ?></td>
+                            <td><?= $row->hari ?></td>
+                            <td><?= $row->waktu_mulai ?></td>
+                            <td><?= $row->waktu_selesai ?></td>
+                            <td><?= $row->tanggal ?></td>
+                            <td><?= $row->status ?></td>
                             <td>
                                 <a href="<?= site_url('dashboard/edit/' . $row->kd_jadwal) ?>" class="edit-btn">Edit</a>
                                 <a href="<?= site_url('dashboard/delete/' . $row->kd_jadwal) ?>" class="delete-btn">Delete</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
+                    <?php else :?>
+                    <?php endif;?>
                 </tbody>
             </table>
         </div>

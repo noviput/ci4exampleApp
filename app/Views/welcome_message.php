@@ -95,7 +95,7 @@
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTadTQxsd060TxmyUJABZnog10LPYkEDeuqbkKOOCrPBg&s" alt="Logo">
         </div>
         <h1>Lab ICT Penjadwalan</h1>
-        <form action="<?= site_url('login') ?>" method="post">
+        <form action="<?= site_url('dashboard') ?>" method="post">
             <div>
                 <label for="username">Username:</label>
                 <input type="text" name="username" required>

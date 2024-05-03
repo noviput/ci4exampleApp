@@ -19,6 +19,7 @@ class AuthController extends BaseController
     public function index()
     {
         {
+            
             $db = \Config\Database::connect();
              // Lakukan join antara tabel dosen dan jadwal
              $builder = $db->table('dosen');
@@ -50,7 +51,7 @@ class AuthController extends BaseController
         if ($password == $user['password']) {
             return view("dashboard_view");
         } else {
-            // return redirect()->back();
+             return redirect()->back();
         }
         // try {
         // } catch (\Throwable $th) {
@@ -59,6 +60,6 @@ class AuthController extends BaseController
     }
 
     public function login() {
-       
+
     }
 }
