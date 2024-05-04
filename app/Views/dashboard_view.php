@@ -237,7 +237,7 @@
                             <td><?= $row->status ?></td>
                             <td>
                                 <a href="<?= site_url('dashboard/edit/' . $row->kd_jadwal) ?>" class="edit-btn">Edit</a>
-                                <a href="<?= site_url('dashboard/delete/' . $row->kd_jadwal) ?>" class="delete-btn">Delete</a>
+                                <a href="<?= site_url('dashboard/delete/' . $row->kd_jadwal) ?>" class="delete-btn" onclick="return confirmDelete()">Delete</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -247,6 +247,11 @@
             </table>
         </div>
     </div>
+    <script>
+        function confirmDelete() {
+            return confirm("Apakah Anda yakin ingin menghapus data ini?");
+        }
+    </script>
 </body>
 
 </html>

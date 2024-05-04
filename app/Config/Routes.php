@@ -22,6 +22,11 @@ $routes->get('penjadwalan', 'SchedulerController::index');
 $routes->post('penjadwalan', 'SchedulerController::submitForm');
 // $routes->get('scheduler/edit/(:num)', 'UpdateController/editForm/$1');
 // $routes->post('scheduler/update/(:num)', 'UpdateController/updateForm/$1');
+$routes->get('dashboard/delete/(:num)', 'dashboard::delete/$1');
+//$routes->get('update/edit/(:segment)', 'UpdateController::edit/$1');
+//$routes->post('update/updateForm/(:segment)', 'UpdateController::updateForm/$1');
+
+
 
 
 //$routes->post('scheduler_input', 'SchedulerController::save');
