@@ -49,7 +49,17 @@ class AuthController extends BaseController
         // var_dump($jadwal);
 
         if ($password == $user['password']) {
-            return view("dashboard_view");
+            $db = \Config\Database::connect();
+            $builder = $db->table('dosen');
+             $builder->select('*');
+             $builder->join('jadwal as j', 'j.nip = dosen.nip');
+             $builder->join('matkul as m', 'j.kd_matkul = m.kd_matkul');
+             $builder->join('ruangan as r', 'j.id_lab = r.id_lab');
+             $query = $builder->get();
+
+            // Ambil hasil query
+            $jadwal = $query->getResult();
+            return view("dashboard_view", compact('jadwal'));
         } else {
              return redirect()->back();
         }

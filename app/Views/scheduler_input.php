@@ -91,9 +91,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="form-group col-md-1">
-                    
-                </div>
+                
                 <div class="form-group col-md-3">
                     <label for="room">Ruangan:</label>
 
@@ -102,8 +100,6 @@
                     <option value="<?= $row['id_lab'] ?>"><?= $row['lab'] ?></option>
                 <?php endforeach; ?>
             </select>
-                </div>
-                <div class="form-group col-md-3">
                 </div>
                 <div class="form-group col-md-3">
                     <label for="day">Hari:</label>
