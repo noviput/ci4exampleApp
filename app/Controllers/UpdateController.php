@@ -11,7 +11,7 @@ use PHPUnit\Framework\Attributes\IgnoreFunctionForCodeCoverage;
 
 class UpdateController extends Controller
 {
-    public function editForm($id)
+    public function editForm($kd_jadwal)
 {
     // Panggil model-model yang diperlukan
     $dosenModel = new DosenModel();
@@ -20,7 +20,7 @@ class UpdateController extends Controller
     $jadwalModel = new JadwalModel();
 
     // Ambil data jadwal yang akan diedit berdasarkan ID
-    $jadwal = $jadwalModel->find($id);
+    $jadwal = $jadwalModel->find($kd_jadwal);
 
     if (!$jadwal) {
         // Jika jadwal tidak ditemukan, redirect pengguna dengan pesan error
@@ -31,6 +31,7 @@ class UpdateController extends Controller
     $data['dosen'] = $dosenModel->findAll();
     $data['matkul'] = $matkulModel->findAll();
     $data['ruangan'] = $ruanganModel->findAll();
+    $data['jadwal'] = $jadwalModel->findAll();
     // Kirim data jadwal yang akan diedit ke view
     $data['jadwal'] = $jadwal;
 
@@ -38,7 +39,7 @@ class UpdateController extends Controller
     return view('update_input', $data);
 }
 
-public function updateForm($id)
+public function updateForm($kd_jadwal)
 {
     // Proses data yang dikirimkan melalui form
     $request = \Config\Services::request();
@@ -68,7 +69,7 @@ public function updateForm($id)
         'tanggal' => $tanggal
     ];
 
-    $jadwalModel->update($id, $data);
+    $jadwalModel->update($kd_jadwal, $data);
 
     // Setelah selesai, redirect pengguna ke halaman lain atau tampilkan pesan sukses
     return redirect()->to(site_url('dashboard'))->with('success', 'Jadwal berhasil diperbarui!');

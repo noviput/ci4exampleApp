@@ -84,40 +84,36 @@
         </div>
         <h1>Info Ruangan Lab ICT</h1>
         <table class="lab-table">
+            <thead>
             <tr>
                 <th>Ruangan</th>
                 <th>Jam Masuk</th>
                 <th>Jam Keluar</th>
                 <th>Tanggal</th> <!-- Ubah dari "Hari" menjadi "Tanggal" -->
-                <th>Keterangan</th>
                 <th>Status</th> <!-- Kolom Status -->
             </tr>
+            </thead>
             <!-- Data contoh ruangan lab -->
-            <tr>
-                <td>Lab 2</td>
-                <td>08:00</td>
-                <td>10:00</td>
-                <td>Senin, 1 April 2024</td> <!-- Ubah dari "Senin" menjadi "Senin, 1 April 2024" -->
-                <td>-</td>
-                <td>Tersedia</td> <!-- Data Status -->
-            </tr>
-            <tr>
-                <td>Lab 4</td>
-                <td>09:00</td>
-                <td>12:00</td>
-                <td>Selasa, 2 April 2024</td> <!-- Ubah dari "Selasa" menjadi "Selasa, 2 April 2024" -->
-                <td>Kelas</td>
-                <td>Terisi</td> <!-- Data Status -->
-            </tr>
-            <tr>
-                <td>Lab 5</td>
-                <td>10:00</td>
-                <td>13:00</td>
-                <td>Rabu, 3 April 2024</td> <!-- Ubah dari "Rabu" menjadi "Rabu, 3 April 2024" -->
-                <td>-</td>
-                <td>Tersedia</td> <!-- Data Status -->
-            </tr>
+            <tbody>
+            <?php if (isset($jadwal) && is_array($jadwal)): ?>
+                    <?php foreach ($jadwal as $row) : ?>
+                        <tr>
+                        
+                            
+                            <td><?= $row->lab ?></td>
+                            
+                            
+                            <td><?= $row->waktu_mulai ?></td>
+                            <td><?= $row->waktu_selesai ?></td>
+                            <td><?= $row->tanggal ?></td>
+                            <td><?= $row->status ?></td>
+                            
+                        </tr>
+                    <?php endforeach; ?>
+                    <?php else :?>
+                    <?php endif;?>
             <!-- Dan seterusnya -->
+            </tbody>
         </table>
         <a href="<?= site_url('dashboard')  ?>" class="back-button">Back to dashboard</a>
     </div>

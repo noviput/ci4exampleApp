@@ -31,7 +31,7 @@
                 </option>
             <?php endforeach; ?>
         </select><br>
-        <label for="id_lab">Ruangan:</label><br>
+        <label for="id_lab">Ruangan:</label><br> 
         <select name="id_lab" id="id_lab">
             <?php foreach ($ruangan as $r): ?>
                 <option value="<?= $r['id_lab'] ?>" <?= ($r['id_lab'] == $jadwal['id_lab']) ? 'selected' : '' ?>>

@@ -20,6 +20,8 @@ $routes->get('register', 'Register::index');
 $routes->post('register', 'Register::process');
 $routes->get('penjadwalan', 'SchedulerController::index');
 $routes->post('penjadwalan', 'SchedulerController::submitForm');
+$routes->get('update', 'UpdateController::editForm');
+
 // $routes->get('scheduler/edit/(:num)', 'UpdateController/editForm/$1');
 // $routes->post('scheduler/update/(:num)', 'UpdateController/updateForm/$1');
 
