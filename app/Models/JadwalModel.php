@@ -10,5 +10,9 @@ class JadwalModel extends Model
     protected $primaryKey = 'kd_jadwal';
     protected $allowedFields = ['nip', 'kd_matkul', 'id_lab', 'waktu_mulai', 'waktu_selesai','tanggal', 'hari', 'status'];
 
-    // Tambahkan metode lain yang diperlukan, misalnya metode untuk mengambil jadwal berdasarkan hari atau ruangan.
+    public function updateJadwal($data, $kd_jadwal)
+    {
+        $this->where('kd_jadwal', $kd_jadwal)->update($data);
+    }
+
 }
