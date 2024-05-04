@@ -236,7 +236,6 @@
                             <td><?= $row->tanggal ?></td>
                             <td><?= $row->status ?></td>
                             <td>
-                                <a href="<?= site_url('dashboard/edit/' . $row->kd_jadwal) ?>" class="edit-btn">Edit</a>
                                 <a href="<?= site_url('dashboard/delete/' . $row->kd_jadwal) ?>" class="delete-btn" onclick="return confirmDelete()">Delete</a>
 
                             </td>
